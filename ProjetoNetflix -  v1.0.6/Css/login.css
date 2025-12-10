@@ -138,3 +138,11 @@ header {
     color: blanchedalmond;
     font-weight: bold;
  }
+
+i{
+    position: absolute;
+    color: rgb(88, 88, 88);
+    font-size: 25px;
+    top: 40%;
+    right: 55px;
+}
