@@ -7,6 +7,7 @@
   <title>Login Netflix</title>
   <link rel="shortcut icon" href="Assets/Images/netflix.ico" type="image/x-icon">
   <link rel="stylesheet" href="./Css/login.css">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,9 +30,12 @@
           <input type="email" placeholder="Email" required>
         </div>
 
-        <div class="input">
-          <input type="password" placeholder="Senha" required>
-        </div>
+    <div class="input">
+      <input type="password" id="senha" placeholder="Senha" required>
+      <span>
+          <i class="bi bi-eye-fill" onclick="showHidePassword()"></i>
+       </span>
+    </div>
 
         <div>
           <button class="submit">Entrar</button>
@@ -42,7 +46,7 @@
 
       <div class="acesso">
         <!-- Botão corrigido -->
-<button class="btnCadastro" id="btnCadastro" type="button">Cadastre-se</button>
+       <button class="btnCadastro" id="btnCadastro" type="button">Cadastre-se</button>
       </div>
 
       <div class="lembre">

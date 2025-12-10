@@ -75,7 +75,7 @@ header {
     padding-left: 15px;
     outline: none;
     margin-bottom: 25px;
-    
+    position: relative;
 }
 
 .Loginbox input:hover {
@@ -137,4 +137,14 @@ header {
     font-size: 15px;
     color: blanchedalmond;
     font-weight: bold;
+ }
+
+ div i{
+    position: absolute;
+    top: 42.5%;
+    right: 50px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777777;
+    font-size: 25px;
  }

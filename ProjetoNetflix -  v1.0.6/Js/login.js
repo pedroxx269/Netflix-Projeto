@@ -44,3 +44,17 @@ const botaoCadastro = document.getElementById("btnCadastro");
 botaoCadastro.addEventListener("click", () => {
   window.location.href = "cadastro.html"; // coloque o nome correto do arquivo
 });
+function showHidePassword() {
+  const password = document.getElementById('senha');
+  const toggler = document.querySelector('.input i');
+
+  if (password.type === 'password') {
+    password.type = 'text'; //  mostra a senha
+    toggler.classList.remove('bi-eye-fill');
+    toggler.classList.add('bi-eye-slash');
+  } else {
+    password.type = 'password'; //  esconde a senha
+    toggler.classList.remove('bi-eye-slash');
+    toggler.classList.add('bi-eye-fill');
+  }
+}
