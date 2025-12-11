@@ -55,6 +55,6 @@ function showHidePassword() {
   } else {
     password.type = 'password'; //  esconde a senha
     toggler.classList.remove('bi-eye-fill');
-    toggler.classList.add('bi-eye-slash');
-  }
+    toggler.classList.add('bi-eye-slash');   
+}
 }
