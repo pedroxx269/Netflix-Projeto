@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - NearX</title>
+    <link rel="stylesheet" href="Css/MainPage.css">
+</head>
+
+<body>
+    <main>
+        <nav class="NavBarMain">
+            <div class="nav-left">
+                <a href="#">
+                    <img src="./Assets/Images/Netflix_2015_logo.png" class="logoNetlix" alt="">
+                </a>
+                <a href="#banner">Início</a>
+                <a href="#filmes">Melhores Filmes</a>
+                <a href="#series">Melhores Séries</a>
+            </div>
+
+            <div class="nav-right">
+                <button class="cadastroMain" type="submit"><a href="login.html">Sair</a></button>
+            </div>
+        </nav>
+        <section id="banner" class="hero">
+
+            <div class="hero-info">
+                <div class="caption-top">
+                    <span class="badge-relevance"></span>
+                    <span class="meta-dot">•</span>
+                    <span class="caption-year"></span>
+                    <span class="meta-dot">•</span>
+                    <span class="caption-extra"></span>
+                    <span class="meta-dot">•</span>
+                    <span class="caption-quality"></span>
+                </div>
+
+                <h2 class="caption-title"></h2>
+                <p class="caption-synopsis"></p>
+                <p class="caption-sub"></p>
+
+                <div class="caption-actions">
+                    <button class="btn btn-play">► Assistir</button>
+                    <button class="btn btn-list">＋ Minha Lista</button>
+                </div>
+            </div>
+
+            <div id="banner-imagem" class="hero-track">
+
+                <div class="hero-item">
+                    <img src="./Assets/Images/Imagens HERO/hero1.jpg" alt="Maze Runner">
+                </div>
+
+                <div class="hero-item">
+                    <img src="./Assets/Images/Imagens HERO/hero2.jpg" alt="Stranger Things">
+                </div>
+
+                <div class="hero-item">
+                    <img src="./Assets/Images/Imagens HERO/hero3.jpg" alt="The 100">
+                </div>
+
+                <div class="hero-item">
+                    <img src="./Assets/Images/Imagens HERO/hero4.jpg" alt="Dark">
+                </div>
+
+            </div>
+
+            <button class="hero-btn prev" aria-label="Anterior" onclick="banneranterior()">‹</button>
+            <button class="hero-btn next" aria-label="Próximo" onclick="proximobanner()">›</button>
+            <div class="hero-dots"></div>
+
+        </section>
+
+
+
+        <div class="ContainerPrincipal">
+            <h2 class="section-title">Melhores Filmes</h2>
+            <div id="filmes" class="row" data-row="filmes">
+                <button class="row-btn left" aria-label="rolar para esquerda" onclick="rolarEsquerdaFilmes()">‹</button>
+                <div id="filmes-item" class="row-track">
+                    <div class="item"><img src="Assets/Images/img filmes/filme1.png" alt="Filme 1"></div>
+                    <div class="item"><img src="Assets/Images/img filmes/filme2.png" alt="Filme 2"></div>
+                    <div class="item"><img src="Assets/Images/img filmes/filme3.png" alt="Filme 3"></div>
+                    <div class="item"><img src="Assets/Images/img filmes/filme4.png" alt="Filme 4"></div>
+                    <div class="item"><img src="Assets/Images/img filmes/filme5.png" alt="Filme 5"></div>
+                    <div class="item"><img src="Assets/Images/img filmes/filme6.png" alt="Filme 6"></div>
+                    <div class="item"><img src="Assets/Images/img filmes/filme7.png" alt="Filme 7"></div>
+                    <div class="item"><img src="Assets/Images/img filmes/filme8.png" alt="Filme 8"></div>
+                    <div class="item"><img src="Assets/Images/img filmes/filme9.png" alt="Filme 9"></div>
+                    <div class="item"><img src="Assets/Images/img filmes/filme10.png" alt="Filme 10"></div>
+                </div>
+                <button class="row-btn right" aria-label="rolar para direita" onclick="rolarDireitaFilmes()">›</button>
+            </div>
+
+            <h2 class="section-title">Melhores Séries</h2>
+            <div id="series" class="row" data-row="series">
+                <button class="row-btn left" aria-label="rolar para esquerda" onclick="rolarEsquerdaSeries()">‹</button>
+                <div id="series-item" class="row-track">
+                    <div class="item"><a class="card" href="https://www.youtube.com/watch?v=Dp-biEtYiO4" target="_blank"
+                            rel="noopener">
+                            <img src="https://img.youtube.com/vi/Dp-biEtYiO4/hqdefault.jpg" alt="Vídeo 1">
+                            <div class="card-title">O que Estudar p/ Trabalhar com Python [GUIA Completo]</div>
+                        </a></div>
+
+                    <div class="item"><a class="card" href="https://www.youtube.com/watch?v=7dhIdVb6y1s" target="_blank"
+                            rel="noopener">
+                            <img src="https://img.youtube.com/vi/7dhIdVb6y1s/hqdefault.jpg" alt="Vídeo 2">
+                            <div class="card-title">Java para Iniciantes: Um Guia Fácil e Prático + Materiais de Estudo
+                            </div>
+                        </a></div>
+
+                    <div class="item"><a class="card" href="https://www.youtube.com/watch?v=mo3fpbW_eTA" target="_blank"
+                            rel="noopener">
+                            <img src="https://img.youtube.com/vi/mo3fpbW_eTA/hqdefault.jpg" alt="Vídeo 3">
+                            <div class="card-title">CURSO JAVASCRIPT | Sintaxe básica (Tipos, Variáveis, Loops, Funções,
+                                Condicionais)</div>
+                        </a></div>
+
+                    <div class="item"><a class="card" href="https://www.youtube.com/watch?v=K_3Bq_ZfJmo" target="_blank"
+                            rel="noopener">
+                            <img src="https://img.youtube.com/vi/K_3Bq_ZfJmo/hqdefault.jpg" alt="Vídeo 3">
+                            <div class="card-title">Aprenda C# em 21 Minutos: Guia Completo do Zero para Iniciantes
+                            </div>
+                        </a></div>
+
+                    <div class="item"><a class="card" href="https://www.youtube.com/watch?v=C-AA7wX-Lqc" target="_blank"
+                            rel="noopener">
+                            <img src="https://img.youtube.com/vi/C-AA7wX-Lqc/hqdefault.jpg" alt="Vídeo 3">
+                            <div class="card-title">por ONDE COMEÇAR na PROGRAMAÇÃO?!</div>
+                        </a></div>
+
+                    <div class="item"><a class="card" href="https://www.youtube.com/watch?v=BTENKdRVS2U" target="_blank"
+                            rel="noopener">
+                            <img src="https://img.youtube.com/vi/BTENKdRVS2U/hqdefault.jpg" alt="Vídeo 3">
+                            <div class="card-title">O MÍNIMO QUE VOCÊ PRECISA SABER ANTES DE PROGRAMAR!</div>
+                        </a></div>
+
+                    <div class="item"><a class="card" href="https://www.youtube.com/watch?v=22nd99SLgNA" target="_blank"
+                            rel="noopener">
+                            <img src="https://img.youtube.com/vi/22nd99SLgNA/hqdefault.jpg" alt="Vídeo 3">
+                            <div class="card-title">Como funcionam as LINGUAGENS de PROGRAMAÇÃO</div>
+                        </a></div>
+
+                    <div class="item"><a class="card" href="https://www.youtube.com/watch?v=DjUB-yVWT2A" target="_blank"
+                            rel="noopener">
+                            <img src="https://img.youtube.com/vi/DjUB-yVWT2A/hqdefault.jpg" alt="Vídeo 3">
+                            <div class="card-title">QUAL a MELHOR LINGUAGEM para PROGRAMAÇÃO?</div>
+                        </a></div>
+
+                    <div class="item"><a class="card" href="https://www.youtube.com/watch?v=N-lt9jKpaq0" target="_blank"
+                            rel="noopener">
+                            <img src="https://img.youtube.com/vi/N-lt9jKpaq0/hqdefault.jpg" alt="Vídeo 3">
+                            <div class="card-title">Java vs Python: qual é a MELHOR linguagem PARA VOCÊ?</div>
+                        </a></div>
+                </div>
+                <button class="row-btn right" aria-label="rolar para direita" onclick="rolarDireitaSeries()">›</button>
+            </div>
+        </div>
+
+
+        <footer class="Rodape">
+
+        </footer>
+
+    </main>
+</body>
+<script src="Js/MainPage.js"></script>
+
+</html>
