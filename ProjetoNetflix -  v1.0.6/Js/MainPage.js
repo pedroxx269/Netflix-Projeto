@@ -88,3 +88,22 @@ function atualizarCarrossel() {
   sinopse.textContent = descricoes[index].synopsis;
   subtitulo.textContent = descricoes[index].sub;
 }
+
+/*const imgs = document.getElementById("banner-imagem");
+const img = document.querySelectorAll("#banner-imagem img");
+
+let idx = 0;
+
+function carrosselBnn() {
+  idx++;
+
+  if (idx > img.length - 1) {
+    idx = 0;
+  }
+
+  imgs.style.transform = `translateX(${-idx * 100}%)`;
+  
+}
+
+setInterval(carrosselBnn, 5000);*/
+
