@@ -89,7 +89,7 @@ function atualizarCarrossel() {
   subtitulo.textContent = descricoes[index].sub;
 }
 
-const imgs = document.getElementById("banner-imagem");
+/*const imgs = document.getElementById("banner-imagem");
 const img = document.querySelectorAll("#banner-imagem img");
 
 let idx = 0;
@@ -105,5 +105,5 @@ function carrosselBnn() {
   
 }
 
-setInterval(carrosselBnn, 5000);
+setInterval(carrosselBnn, 5000);*/
 
