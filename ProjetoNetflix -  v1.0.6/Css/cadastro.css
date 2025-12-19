@@ -141,6 +141,8 @@ body.dark .navBarCadastro .Sair:hover {
 
 .RegrasSenha .regra {
   margin: 3px 0;
+  display: none;
+  color: red;
 }
 
 .RegrasSenha .ok {
