@@ -145,6 +145,21 @@ p{
     color: #777777;
     font-size: 25px;
  }
+
+input{
+  position: relative;
+}
+
+.input i{
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 25px;
+  color: #777;
+}
+
 </style>
 </head>
 
@@ -162,26 +177,23 @@ p{
     <div class="Senhabox">
 
       <h1>Esqueci minha senha</h1>
+<form id="formTrocarSenha">
 
-      <form>
-        <div class="input">
-          <input type="password" placeholder="Senha" required>
-        </div>
+  <input type="password" id="senha" placeholder="Nova senha">
 
-    <div class="input">
-      <input type="password" id="senha" placeholder="Confirmar Senha" required>
-      <span>
-          <i class="bi bi-eye-fill" onclick="showHidePassword()"></i>
-       </span>
-    </div>
-        <div>
-          <button class="submit">Entrar</button>
-        </div>
-      </form>
+  <div class="input">
+    <input type="password" id="confirmar" placeholder="Confirmar senha">
+    <i onclick="showHidePassword(this)"></i>
+
+  </div>
+
+  <button type="submit" class="submit">Confirmar</button>
+
+</form>
+
 
   </main>
-
-
+<script src="senha.js"></script>
 </body>
-
 </html>
+
