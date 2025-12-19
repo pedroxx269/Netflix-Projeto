@@ -54,7 +54,7 @@ header {
     z-index: 90;
     position: relative;
     max-width: 450px;
-    height: 550px;
+    height: 500px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 15px;
     box-sizing: border-box;
@@ -99,7 +99,7 @@ header {
     font-weight: bold;
 }
 
-.Loginbox button:hover {
+.Senhabox button:hover {
     transform: scale(1.02);
     cursor: pointer;
 }
@@ -159,7 +159,18 @@ input{
   font-size: 25px;
   color: #777;
 }
+p{
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: initial;
+  
+}
 
+a{
+  text-decoration: none;
+  color: white;
+}
 </style>
 </head>
 
@@ -179,16 +190,13 @@ input{
       <h1>Esqueci minha senha</h1>
 <form id="formTrocarSenha">
 
-  <input type="password" id="senha" placeholder="Nova senha">
+  <input type="password" id="SenhaCadastro" placeholder="Senha">
+  <input type="password" id="ConfirmarSenhaCadastro" placeholder="Confirmar Senha">
 
-  <div class="input">
-    <input type="password" id="confirmar" placeholder="Confirmar senha">
-    <i onclick="showHidePassword(this)"></i>
-
-  </div>
-
-  <button type="submit" class="submit">Confirmar</button>
-
+  <button type="submit" id="btnConfirmar" disabled>
+    Confirmar
+  </button>
+ <p>O botão sera ativado quando as senha forrem iguais</p>
 </form>
 
 
