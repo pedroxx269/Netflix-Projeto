@@ -4,14 +4,13 @@ const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 const formulario = document.querySelector(".FormularioCadastro");
 const campoEmail = document.getElementById("EmailCadastro");
 const campoSenha = document.getElementById("SenhaCadastro");
+const campoConfirmarSenha = document.getElementById("ConfirmarSenhaCadastro");
 
-// Validação de e-mail
 function validarEmail(email) {
   const regra = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regra.test(email);
 }
 
-// Validação de senha
 function validarSenha(senha) {
   if (senha.length < 8) return "A senha deve ter pelo menos 8 caracteres.";
   if (!/[0-9]/.test(senha)) return "A senha deve ter pelo menos um número.";
@@ -20,7 +19,15 @@ function validarSenha(senha) {
   if (!/[@#$%&]/.test(senha))
     return "A senha deve ter pelo menos um símbolo (@#$%&).";
 
-  return ""; // Sem erro
+  return "";
+}
+
+// 🔥 FUNÇÃO DE CONFIRMAÇÃO
+function confirmarSenha(senha, confirmarSenha) {
+  if (senha !== confirmarSenha) {
+    return "As senhas não coincidem!";
+  }
+  return "";
 }
 
 formulario.addEventListener("submit", (evento) => {
@@ -28,8 +35,8 @@ formulario.addEventListener("submit", (evento) => {
 
   const email = campoEmail.value.trim();
   const senha = campoSenha.value;
+  const confirmar = campoConfirmarSenha.value;
 
-  // Validações
   if (!validarEmail(email)) {
     alert("Digite um e-mail válido.");
     return;
@@ -41,13 +48,18 @@ formulario.addEventListener("submit", (evento) => {
     return;
   }
 
-  // Verificar e-mail duplicado
+  // 🔥 VERIFICA SE AS SENHAS SÃO IGUAIS
+  const erroConfirmacao = confirmarSenha(senha, confirmar);
+  if (erroConfirmacao !== "") {
+    alert(erroConfirmacao);
+    return;
+  }
+
   if (usuarios.some((u) => u.email.toLowerCase() === email.toLowerCase())) {
     alert("Este e-mail já está cadastrado.");
     return;
   }
 
-  // Criar e salvar novo usuário
   const novoUsuario = {
     id: Date.now(),
     email: email,
@@ -55,8 +67,6 @@ formulario.addEventListener("submit", (evento) => {
   };
 
   usuarios.push(novoUsuario);
-
-  //  SALVANDO NO LOCALSTORAGE
   localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
   alert("Cadastro realizado com sucesso!");
@@ -76,4 +86,5 @@ botaoTema.addEventListener('click', () => {
     botaoTema.textContent = "🌙 Dark Mode";
   }
 });
+
 console.log(usuarios);

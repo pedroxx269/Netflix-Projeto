@@ -58,3 +58,22 @@ function showHidePassword() {
     toggler.classList.add('bi-eye-slash');   
 }
 }
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const senha = inputSenha.value.trim();
+  const confirmar = inputConfirmar.value.trim();
+
+  if (senha === "" || confirmar === "") {
+    alert("Preencha todos os campos.");
+    return;
+  }
+
+  if (senha !== confirmar) {
+    alert("As senhas não coincidem!");
+    return;
+  }
+
+  alert("Senha confirmada com sucesso!");
+  window.location.href = "MainPage.html";
+});
