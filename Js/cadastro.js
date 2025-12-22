@@ -4,6 +4,9 @@ const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 const formulario = document.querySelector(".FormularioCadastro");
 const campoEmail = document.getElementById("EmailCadastro");
 const campoSenha = document.getElementById("SenhaCadastro");
+const campoConfirmarSenha = document.getElementById("ConfirmarSenha");
+
+
 
 // Validação de e-mail
 function validarEmail(email) {
@@ -28,16 +31,24 @@ formulario.addEventListener("submit", (evento) => {
 
   const email = campoEmail.value.trim();
   const senha = campoSenha.value;
+  const confirmarSenha = campoConfirmarSenha.value;
 
-  // Validações
+  // Validação de e-mail
   if (!validarEmail(email)) {
     alert("Digite um e-mail válido.");
     return;
   }
 
+  // Validação de senha
   const erroSenha = validarSenha(senha);
   if (erroSenha !== "") {
     alert(erroSenha);
+    return;
+  }
+
+  // Confirmação de senha
+  if (senha !== confirmarSenha) {
+    alert("As senhas não coincidem!");
     return;
   }
 
@@ -47,22 +58,15 @@ formulario.addEventListener("submit", (evento) => {
     return;
   }
 
-  // Criar e salvar novo usuário
-  const novoUsuario = {
-    id: Date.now(),
-    email: email,
-    senha: senha
-  };
-
+  // Criar usuário
+  const novoUsuario = { id: Date.now(), email, senha };
   usuarios.push(novoUsuario);
-
-  //  SALVANDO NO LOCALSTORAGE
   localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
   alert("Cadastro realizado com sucesso!");
-
   formulario.reset();
 });
+
 
 // Tema
 const botaoTema = document.getElementById('ToggleTema');
