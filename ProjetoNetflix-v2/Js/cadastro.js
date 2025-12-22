@@ -47,7 +47,7 @@ function validarSenha(senha, confirmarSenha) {
   }
 
   return valido;
-}
+}};
 
 
 formulario.addEventListener("submit", (evento) => {

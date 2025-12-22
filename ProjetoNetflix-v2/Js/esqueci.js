@@ -30,3 +30,4 @@ formulario.addEventListener("submit", (evento) => {
    window.location.href = "MainPage.html";
 });
 
+
