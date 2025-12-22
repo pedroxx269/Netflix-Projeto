@@ -3,7 +3,6 @@ const campoSenha = document.getElementById("SenhaCadastro");
 const campoConfirmarSenha = document.getElementById("ConfirmarSenhaCadastro");
 const botao = document.getElementById("btnConfirmar");
 
-// Ativar botão quando as senhas forem iguais
 function validarCampos() {
   if (
     campoSenha.value !== "" &&
@@ -19,7 +18,6 @@ function validarCampos() {
 campoSenha.addEventListener("input", validarCampos);
 campoConfirmarSenha.addEventListener("input", validarCampos);
 
-// Submit
 formulario.addEventListener("submit", (evento) => {
   evento.preventDefault();
 
@@ -29,4 +27,6 @@ formulario.addEventListener("submit", (evento) => {
   }
 
   alert("Senha alterada com sucesso!");
+   window.location.href = "MainPage.html";
 });
+
