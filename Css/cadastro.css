@@ -139,17 +139,14 @@ body.dark .navBarCadastro .Sair:hover {
   color: var(--cor-texto);
 }
 
-.RegrasSenha .regra {
-  margin: 3px 0;
+#regrasSenha li{
+  color: red;
+  display:none;
+}
+.valida {
+  color: rgb(0, 255, 0);
 }
 
-.RegrasSenha .ok {
-  color: #2ecc71;
-}
-
-.RegrasSenha .erro {
-  color: #e74c3c;
-}
 
 /* BOTÃO DE TEMA — CONTAINER */
 .containerBotaoTema {
