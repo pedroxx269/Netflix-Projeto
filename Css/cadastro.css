@@ -139,12 +139,18 @@ body.dark .navBarCadastro .Sair:hover {
   color: var(--cor-texto);
 }
 
+<<<<<<< HEAD
 #regrasSenha li{
   color: red;
   display:none;
 }
 .valida {
   color: rgb(0, 255, 0);
+=======
+.RegrasSenha .regra {
+  display: none;
+  color: red;
+>>>>>>> main
 }
 
 

@@ -16,14 +16,34 @@ function validarEmail(email) {
 
 // Validação de senha
 function validarSenha(senha) {
-  if (senha.length < 8) return "A senha deve ter pelo menos 8 caracteres.";
-  if (!/[0-9]/.test(senha)) return "A senha deve ter pelo menos um número.";
-  if (!/[A-Z]/.test(senha))
-    return "A senha deve ter pelo menos uma letra maiúscula.";
-  if (!/[@#$%&]/.test(senha))
-    return "A senha deve ter pelo menos um símbolo (@#$%&).";
+  let valido = true
+  if (!/[A-Z]/.test(senha)) { mostrarMsgMaiuscula();
+    valido = false;
+} else {
+    esconderMsgMaiuscula();
+}
+  if (!/[0-9]/.test(senha)) {
+    mostrarMsgNumero();
+    valido = false;
+} else {
+    esconderMsgNumero();
+};
 
-  return ""; // Sem erro
+  if (senha.length < 8) { 
+    mostrarMsgQuantidade();
+    valido = false;
+} else {
+    esconderMsgQuantidade();
+}
+
+  if (!/[#*_@%$]/.test(senha)) {
+    mostrarMsgEspeciais();
+    valido = false;
+} else {
+    esconderMsgEspeciais();
+};
+
+  return valido
 }
 
 function validarSenhaAoDigitar() {
@@ -67,14 +87,13 @@ formulario.addEventListener("submit", (evento) => {
 
   // Validação de e-mail
   if (!validarEmail(email)) {
-    alert("Digite um e-mail válido.");
     return;
   }
 
   // Validação de senha
   const erroSenha = validarSenha(senha);
   if (erroSenha !== "") {
-    alert(erroSenha);
+
     return;
   }
 
@@ -113,3 +132,37 @@ botaoTema.addEventListener('click', () => {
   }
 });
 console.log(usuarios);
+
+//Mostrar msg erro
+function mostrarMsgQuantidade() {
+    document.getElementById("regra8").style.display = "block";
+}
+
+function mostrarMsgNumero() {
+    document.getElementById("regraNumero").style.display = "block";
+}
+
+function mostrarMsgEspeciais() {
+    document.getElementById("regraSimbolo").style.display = "block";
+}
+
+function mostrarMsgMaiuscula() {
+    document.getElementById("regraMaiuscula").style.display = "block";
+}
+
+//esconder msg erro
+function esconderMsgQuantidade() {
+    document.getElementById("regra8").style.display = "none";
+}
+
+function esconderMsgNumero() {
+    document.getElementById("regraNumero").style.display = "none";
+}
+
+function esconderMsgEspeciais() {
+    document.getElementById("regraSimbolo").style.display = "none";
+}
+
+function esconderMsgMaiuscula() {
+    document.getElementById("regraMaiuscula").style.display = "none";
+}
