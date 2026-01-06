@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Netflix - NearX</title>
+    <link rel="stylesheet" href="./Css/cadastro.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="shortcut icon" href="nt.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <main>
+        <nav>
+            <div class="navBarCadastro">
+                <a href="/login">
+                    <img src="./Assets/Images/Netflix_2015_logo.png" class="logoNetlix" alt="">
+                </a>
+            </div>
+        </nav>
+        <hr>
+        <div class="containerBotaoTema">
+            <button id="ToggleTema" class="BotaoTema">🌙 Dark Mode</button>
+        </div>
+        <div class="Content">
+            <div class="cardCadastro">
+                <h1>Que bom ter você conosco!</h1>
+                <h1>É fácil se cadastrar na netflix.</h1>
+                <h3>Informe seu email e senha para se cadastrar</h3>
+            </div>
+            <form action="/cadastro" method="POST" class="FormularioCadastro">
+
+
+                <input type="email" id="EmailCadastro" name="EmailCadastro" placeholder="Digite seu email">
+                <input type="password" id="SenhaCadastro" name="SenhaCadastro" placeholder="Digite sua senha">
+                <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" placeholder="Confirme a senha"
+                    required>
+
+
+                <!--<ul id="regrasSenha">
+                    <li id="regra8">• Mínimo 8 caracteres</li>
+                    <li id="regraNumero">• Pelo menos um número</li>
+                    <li id="regraMaiuscula">• Pelo menos uma letra maiúscula</li>
+                    <li id="regraSimbolo">• Pelo menos um símbolo (@#$%&)</li>
+                </ul>-->
+                <button type="submit">Cadastrar agora</button>
+            </form>
+        </div>
+
+    </main>
+    <script src="./Js/cadastro.js"></script>
+</body>
+
+</html>
