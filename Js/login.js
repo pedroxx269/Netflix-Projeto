@@ -17,7 +17,11 @@ formulario.addEventListener("submit", (e) => {
 
   // Validação básica
   if (email === "" || senha === "") {
-    alert("Preencha todos os campos.");
+    Swal.fire({
+  title: "Login falhou!",
+  text: "Preencha todos os campos",
+  icon: "error"
+});
     return;
   }
 
@@ -27,7 +31,11 @@ formulario.addEventListener("submit", (e) => {
   );
 
   if (!usuarioEncontrado) {
-    alert("E-mail ou senha incorretos!");
+    Swal.fire({
+  title: "Login falhou!",
+  text: "Email ou senha incorretos",
+  icon: "error"
+});
     return;
   }
 
@@ -35,7 +43,11 @@ formulario.addEventListener("submit", (e) => {
   localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
 
   // Redireciona
-  alert("Login realizado com sucesso!");
+  Swal.fire({
+  title: "Sucesso!",
+  text: "Login realizado com sucesso!",
+  icon: "success"
+});
   window.location.href = "MainPage.html"; // ajuste o nome se for diferente
 });
 

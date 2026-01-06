@@ -14,37 +14,31 @@ function validarEmail(email) {
 // Validação de senha
 function validarSenha(senha) {
   let valido = true
-  if (!/[A-Z]/.test(senha)) { mostrarMsgMaiuscula();
+  if (!/[A-Z]/.test(senha)) {
+    mostrarMsgMaiuscula();
     valido = false;
-} else {
-    esconderMsgMaiuscula();
-}
+  }
+
   if (!/[0-9]/.test(senha)) {
     mostrarMsgNumero();
     valido = false;
-} else {
-    esconderMsgNumero();
-};
+  }
 
-  if (senha.length < 8) { 
+  if (senha.length < 8) {
     mostrarMsgQuantidade();
     valido = false;
-} else {
-    esconderMsgQuantidade();
-}
+  }
 
   if (!/[#*_@%$]/.test(senha)) {
     mostrarMsgEspeciais();
     valido = false;
-} else {
-    esconderMsgEspeciais();
-};
+  }
 
-  return valido
+  return valido;
 }
 
-formulario.addEventListener("submit", (evento) => {
-  evento.preventDefault();
+formulario.addEventListener("submit", function (event) {
+  event.preventDefault();
 
   const email = campoEmail.value.trim();
   const senha = campoSenha.value;
@@ -54,11 +48,9 @@ formulario.addEventListener("submit", (evento) => {
     return;
   }
 
-  const erroSenha = validarSenha(senha);
-  if (erroSenha !== "") {
-
-    return;
-  }
+  if (!validarSenha(senha)) {
+  return;
+}
 
   // Verificar e-mail duplicado
   if (usuarios.some((u) => u.email.toLowerCase() === email.toLowerCase())) {
@@ -78,10 +70,13 @@ formulario.addEventListener("submit", (evento) => {
   //  SALVANDO NO LOCALSTORAGE
   localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-  alert("Cadastro realizado com sucesso!");
+  Swal.fire({
+  title: "Cadastro realizado com sucesso",
+  text: "",
+  icon: "success"
+});
 
   formulario.reset();
-});
 
 // Tema
 const botaoTema = document.getElementById('ToggleTema');
@@ -96,37 +91,35 @@ botaoTema.addEventListener('click', () => {
   }
 });
 console.log(usuarios);
-
+});
 //Mostrar msg erro
 function mostrarMsgQuantidade() {
-    document.getElementById("regra8").style.display = "block";
-}
-
+    Swal.fire({
+  title: "Senha inválida",
+  text: "Sua senha deve conter pelo menos 8 caracteres",
+  icon: "error"
+})
+  }
 function mostrarMsgNumero() {
-    document.getElementById("regraNumero").style.display = "block";
+    Swal.fire({
+  title: "Senha inválida",
+  text: "Sua senha deve conter pelo menos 1 número",
+  icon: "error"
+})
 }
 
 function mostrarMsgEspeciais() {
-    document.getElementById("regraSimbolo").style.display = "block";
+    Swal.fire({
+  title: "Senha inválida",
+  text: "Sua senha deve conter pelo menos 1 caractere especial",
+  icon: "error"
+})
 }
 
 function mostrarMsgMaiuscula() {
-    document.getElementById("regraMaiuscula").style.display = "block";
-}
-
-//esconder msg erro
-function esconderMsgQuantidade() {
-    document.getElementById("regra8").style.display = "none";
-}
-
-function esconderMsgNumero() {
-    document.getElementById("regraNumero").style.display = "none";
-}
-
-function esconderMsgEspeciais() {
-    document.getElementById("regraSimbolo").style.display = "none";
-}
-
-function esconderMsgMaiuscula() {
-    document.getElementById("regraMaiuscula").style.display = "none";
+    Swal.fire({
+  title: "Senha inválida",
+  text: "Sua senha deve conter pelo menos 1 letra Maiúscula",
+  icon: "error"
+})
 }
