@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esqueci minha senha</title>
+  <link rel="stylesheet" href="./Css/esqueci.css">
+</head>
+
+<body>
+  <div class="Senhabox">
+    <h2>Esqueci minha senha</h2>
+    <form id="formTrocarSenha" action="/esqueci" method="POST">
+      <input type="password" id="SenhaCadastro" name="SenhaCadastro" placeholder="Senha">
+      <input type="password" id="ConfirmarSenhaCadastro" name="ConfirmarSenhaCadastro" placeholder="Confirmar Senha">
+      <p id="msgErro">As senhas não coincidem!</p>
+      <button type="submit" id="btnConfirmar" disabled>Confirmar</button>
+    </form>
+  </div>
+  <script src="./Js/esqueci.js"></script>
+</body>
+
+</html>
