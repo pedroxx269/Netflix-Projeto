@@ -9,8 +9,36 @@
     <link rel="shortcut icon" href="nt.ico" type="image/x-icon">
 </head>
 
-<body>
-    <main>
+<body class="fade-in">        
+    <!-- SKELETON LOADING -->
+        <div id="skeleton">
+            <div class="skeleton-hero"></div>
+
+            <div class="skeleton-section">
+                <div class="skeleton-title"></div>
+                <div class="skeleton-row">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </div>
+
+            <div class="skeleton-section">
+                <div class="skeleton-title"></div>
+                <div class="skeleton-row">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </div>
+        </div>
+
+
+    <main id="content" class="hidden">
         <nav class="NavBarMain">
             <div class="nav-left">
                 <a href="/MainPage">
@@ -22,7 +50,7 @@
             </div>
 
             <div class="nav-right">
-<a href="/login" class="cadastroMain">Sair</a>
+                <a href="#" class="cadastroMain" onclick="logout()">Sair</a>
             </div>
         </nav>
         <section id="banner" class="hero">
@@ -77,272 +105,264 @@
 
 
         <div class="ContainerPrincipal">
-            <h2 class="section-title">Melhores Filmes</h2>
-            <div id="filmes" class="row" data-row="filmes">
-                <button class="row-btn left" aria-label="rolar para esquerda" onclick="rolarEsquerdaFilmes()">‹</button>
-                <div id="filmes-item" class="row-track">
-<div class="item">
-    <div class="card">
-        <div class="card-img">
-            <img src="Assets/Images/img filmes/filme1.png" alt="Filme 1">
-        </div>
-        <div class="card-info">
+  <h2 class="section-title">Melhores Filmes</h2>
+
+  <div id="filmes" class="row" data-row="filmes">
+    <button class="row-btn left" aria-label="rolar para esquerda" onclick="rolarEsquerdaFilmes()">‹</button>
+
+    <div id="filmes-item" class="row-track">
+
+      <div class="item">
+        <div class="card" data-imdb="tt29232158" data-trailer="https://www.youtube.com/embed/PAc31m34xD4">
+          <div class="card-img">
+            <img src="Assets/Images/img filmes/filme1.png">
+          </div>
+          <div class="card-info">
             <div class="card-actions">
-                <button class="botoes">▶</button>
-                <button class="botoes">＋</button>
-                <button class="botoes">👍</button>
+              <button class="botoes abrir-modal">▶</button>
+              <button class="botoes">＋</button>
+              <button class="botoes">👍</button>
             </div>
             <div class="card-details">
-                <span class="age">12</span>
-                <span class="time">1h 44min</span>
-                <span class="hd">HD</span>
+              <span class="age">12</span>
+              <span class="time">1h 44min</span>
+              <span class="hd">HD</span>
             </div>
-            <div class="genres">
-                <span>Imaginativo</span> • 
-                <span>Suspense no ar</span> • 
-                <span>Fantasia</span>
-            </div>
-
+            <div class="genres">Fantasia • Ação</div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="item">
-    <div class="card">
-        <div class="card-img">
-            <img src="Assets/Images/img filmes/filme2.png" alt="Filme 1">
-        </div>
-        <div class="card-info">
+      <div class="item">
+        <div class="card" data-imdb="tt24852126" data-trailer="https://www.youtube.com/embed/08rAb6UV-rY?si=rJIhIT_Tpplc4WoT">
+          <div class="card-img">
+            <img src="Assets/Images/img filmes/filme2.png">
+          </div>
+          <div class="card-info">
             <div class="card-actions">
-                <button class="botoes">▶</button>
-                <button class="botoes">＋</button>
-                <button class="botoes">👍</button>
+              <button class="botoes abrir-modal">▶</button>
+              <button class="botoes">＋</button>
+              <button class="botoes">👍</button>
             </div>
             <div class="card-details">
-                <span class="age">12</span>
-                <span class="time">1h 36min</span>
-                <span class="hd">HD</span>
+              <span class="age">12</span>
+              <span class="time">1h 36min</span>
+              <span class="hd">HD</span>
             </div>
-            <div class="genres">
-                <span>Romance</span> • 
-                <span>Comédia</span> • 
-                <span>Do ódio ao amor</span>
-            </div>
-
+            <div class="genres">Comédia • Romance</div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="item">
-    <div class="card">
-        <div class="card-img">
-            <img src="Assets/Images/img filmes/filme3.png" alt="Filme 1">
-        </div>
-        <div class="card-info">
+      <div class="item" >
+        <div class="card" data-imdb="tt19864802" data-trailer="https://www.youtube.com/embed/nSKZNdmfEwU?si=al16F3sOn-0lR7j6">
+          <div class="card-img">
+            <img src="Assets/Images/img filmes/filme3.png">
+          </div>
+          <div class="card-info">
             <div class="card-actions">
-                <button class="botoes">▶</button>
-                <button class="botoes">＋</button>
-                <button class="botoes">👍</button>
+              <button class="botoes abrir-modal">▶</button>
+              <button class="botoes">＋</button>
+              <button class="botoes">👍</button>
             </div>
             <div class="card-details">
-                <span class="age">16</span>
-                <span class="time">1h 53min</span>
-                <span class="hd">HD</span>
+              <span class="age">16</span>
+              <span class="time">1h 53min</span>
+              <span class="hd">HD</span>
             </div>
-            <div class="genres">
-                <span>Explosivo</span> • 
-                <span>Suspense no ar</span> • 
-                <span>Militar</span>
-            </div>
-
+            <div class="genres">Ação • Suspense</div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="item">
-    <div class="card">
-        <div class="card-img">
-            <img src="Assets/Images/img filmes/filme4.png" alt="Filme 1">
-        </div>
-        <div class="card-info">
+      <div class="item">
+        <div class="card" data-imdb="tt7504726" data-trailer="https://www.youtube.com/embed/uYpK1cMEQ8w?si=RXavz6KOWouvVyIW">
+          <div class="card-img">
+            <img src="Assets/Images/img filmes/filme4.png">
+          </div>
+          <div class="card-info">
             <div class="card-actions">
-                <button class="botoes">▶</button>
-                <button class="botoes">＋</button>
-                <button class="botoes">👍</button>
+              <button class="botoes abrir-modal">▶</button>
+              <button class="botoes">＋</button>
+              <button class="botoes">👍</button>
             </div>
             <div class="card-details">
-                <span class="age">12</span>
-                <span class="time">1h 40min</span>
-                <span class="hd">HD</span>
+              <span class="age">12</span>
+              <span class="time">1h 40min</span>
+              <span class="hd">HD</span>
             </div>
-            <div class="genres">
-                <span>Comovente</span> • 
-                <span>Empolgante</span> • 
-                <span>Família</span>
-            </div>
-
+            <div class="genres">Aventura • Família</div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="item">
-    <div class="card">
-        <div class="card-img">
-            <img src="Assets/Images/img filmes/filme5.png" alt="Filme 1">
-        </div>
-        <div class="card-info">
+      <div class="item" >
+        <div class="card" data-imdb="tt2452042" data-trailer="https://www.youtube.com/embed/FXUIlLLE-7Q?si=RgkEBsxaj6K4FfFT">
+          <div class="card-img">
+            <img src="Assets/Images/img filmes/filme5.png">
+          </div>
+          <div class="card-info">
             <div class="card-actions">
-                <button class="botoes">▶</button>
-                <button class="botoes">＋</button>
-                <button class="botoes">👍</button>
+              <button class="botoes abrir-modal">▶</button>
+              <button class="botoes">＋</button>
+              <button class="botoes">👍</button>
             </div>
             <div class="card-details">
-                <span class="age">L</span>
-                <span class="time">1h 28min</span>
-                <span class="hd">HD</span>
+              <span class="age">L</span>
+              <span class="time">1h 28min</span>
+              <span class="hd">HD</span>
             </div>
-            <div class="genres">
-                <span>Comovente</span> • 
-                <span>Agradável</span> • 
-                <span>Comédia de ação</span>
-            </div>
-
+            <div class="genres">Animação • Família</div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="item">
-    <div class="card">
-        <div class="card-img">
-            <img src="Assets/Images/img filmes/filme6.png" alt="Filme 1">
-        </div>
-        <div class="card-info">
+      <div class="item">
+        <div class="card" data-imdb="tt0356634" data-trailer="https://www.youtube.com/embed/5g1SLGRM6qU?si=KHB1GnnNDcQJcbw4">
+          <div class="card-img">
+            <img src="Assets/Images/img filmes/filme6.png">
+          </div>
+          <div class="card-info">
             <div class="card-actions">
-                <button class="botoes">▶</button>
-                <button class="botoes">＋</button>
-                <button class="botoes">👍</button>
+              <button class="botoes abrir-modal">▶</button>
+              <button class="botoes">＋</button>
+              <button class="botoes">👍</button>
             </div>
             <div class="card-details">
-                <span class="age">L</span>
-                <span class="time">1h 14min</span>
-                <span class="hd">HD</span>
+              <span class="age">L</span>
+              <span class="time">1h 14min</span>
+              <span class="hd">HD</span>
             </div>
-            <div class="genres">
-                <span>Infantil</span> • 
-                <span>Animais</span> • 
-                <span>Filmes de Hollywood</span>
-            </div>
-
+            <div class="genres">Comédia • Infantil</div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="item">
-    <div class="card">
-        <div class="card-img">
-            <img src="Assets/Images/img filmes/filme7.png" alt="Filme 1">
-        </div>
-        <div class="card-info">
+      <div class="item">
+        <div class="card" data-imdb="tt2692250" data-trailer="https://www.youtube.com/embed/jQ0qgS8NtOQ?si=e9oks-fU-FtoaP_b">
+          <div class="card-img">
+            <img src="Assets/Images/img filmes/filme7.png">
+          </div>
+          <div class="card-info">
             <div class="card-actions">
-                <button class="botoes">▶</button>
-                <button class="botoes">＋</button>
-                <button class="botoes">👍</button>
+              <button class="botoes abrir-modal">▶</button>
+              <button class="botoes">＋</button>
+              <button class="botoes">👍</button>
             </div>
             <div class="card-details">
-                <span class="age">L</span>
-                <span class="time">1h 37min</span>
-                <span class="hd">HD</span>
+              <span class="age">L</span>
+              <span class="time">1h 37min</span>
+              <span class="hd">HD</span>
             </div>
-            <div class="genres">
-                <span>Mágico</span> • 
-                <span>Imaginativo</span> • 
-                <span>Infantil</span>   
-            </div>
-
+            <div class="genres">Fantasia • Infantil</div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="item">
-    <div class="card">
-        <div class="card-img">
-            <img src="Assets/Images/img filmes/filme8.png" alt="Filme 1">
-        </div>
-        <div class="card-info">
+      <div class="item">
+        <div class="card" data-imdb="tt0455499" data-trailer=https://www.youtube.com/embed/GYuZnqyIgHg?si=f5T-TmupbI1ZhXEH"">
+          <div class="card-img">
+            <img src="Assets/Images/img filmes/filme8.png">
+          </div>
+          <div class="card-info">
             <div class="card-actions">
-                <button class="botoes" >▶</button>
-                <button class="botoes">＋</button>
-                <button class="botoes">👍</button>
+              <button class="botoes abrir-modal">▶</button>
+              <button class="botoes">＋</button>
+              <button class="botoes">👍</button>
             </div>
             <div class="card-details">
-                <span class="age">L</span>
-                <span class="time">1h 17min</span>
-                <span class="hd">HD</span>
+              <span class="age">L</span>
+              <span class="time">1h 17min</span>
+              <span class="hd">HD</span>
             </div>
-            <div class="genres">
-                <span>Trapalhadas</span> • 
-                <span>Infantil</span> • 
-                <span>Filmes de Hollywood</span>
-            </div>
-
+            <div class="genres">Comédia • Infantil</div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="item">
-    <div class="card">
-        <div class="card-img">
-            <img src="Assets/Images/img filmes/filme9.png" alt="Filme 1">
-        </div>
-        <div class="card-info">
+      <div class="item">
+        <div class="card" data-imdb="tt7504818" data-trailer="https://www.youtube.com/embed/g9MfP-rN2VU?si=2IKkekOULrQNI_lo">
+          <div class="card-img">
+            <img src="Assets/Images/img filmes/filme9.png">
+          </div>
+          <div class="card-info">
             <div class="card-actions">
-                <button class="botoes">▶</button>
-                <button class="botoes">＋</button>
-                <button class="botoes">👍</button>
+              <button class="botoes abrir-modal">▶</button>
+              <button class="botoes">＋</button>
+              <button class="botoes">👍</button>
             </div>
             <div class="card-details">
-                <span class="age">L</span>
-                <span class="time">1h 46min</span>
-                <span class="hd">HD</span>
+              <span class="age">L</span>
+              <span class="time">1h 46min</span>
+              <span class="hd">HD</span>
             </div>
-            <div class="genres">
-                <span>Imaginativo</span> • 
-                <span>Infantil</span> • 
-                <span>Amizade</span>
-            </div>
-
+            <div class="genres">Animação • Amizade</div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="item">
-    <div class="card">
-        <div class="card-img">
-            <img src="Assets/Images/img filmes/filme10.png" alt="Filme 1">
-        </div>
-        <div class="card-info">
+      <div class="item">
+        <div class="card" data-imdb="tt3411444" data-trailer="https://www.youtube.com/embed/67Zb2NXIOpQ?si=Jp9PkeZXYCWT-dS6">
+          <div class="card-img">
+            <img src="Assets/Images/img filmes/filme10.png">
+          </div>
+          <div class="card-info">
             <div class="card-actions">
-                <button class="botoes">▶</button>
-                <button class="botoes">＋</button>
-                <button class="botoes">👍</button>
+              <button class="botoes abrir-modal">▶</button>
+              <button class="botoes">＋</button>
+              <button class="botoes">👍</button>
             </div>
             <div class="card-details">
-                <span class="age">L</span>
-                <span class="time">1h 50min</span>
-                <span class="hd">HD</span>
+              <span class="age">L</span>
+              <span class="time">1h 50min</span>
+              <span class="hd">HD</span>
             </div>
-            <div class="genres">
-                <span>Agradável</span> • 
-                <span>Música infantil</span> • 
-                <span>Animais companheiros</span>
-            </div>
-
+            <div class="genres">Família • Aventura</div>
+          </div>
         </div>
+      </div>
+
     </div>
+
+    <button class="row-btn right" aria-label="rolar para direita" onclick="rolarDireitaFilmes()">›</button>
+  </div>
 </div>
+
+<div id="modal-filme" class="modal hidden">
+  <div class="modal-overlay" onclick="fecharModal()"></div>
+
+  <div class="modal-content">
+    <button class="modal-close" onclick="fecharModal()">✕</button>
+
+    <div class="modal-img">
+  <iframe
+    id="modal-trailer"
+    src=""
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
 </div>
-                <button class="row-btn right" aria-label="rolar para direita" onclick="rolarDireitaFilmes()">›</button>
-            </div>
+
+    <div class="modal-info">
+      <div class="modal-actions">
+        <button class="botoes">▶</button>
+        <button class="botoes">＋</button>
+        <button class="botoes">👍</button>
+      </div>
+
+      <div class="modal-details">
+        <span id="modal-age" class="age"></span>
+        <span id="modal-time" class="time"></span>
+        <span class="hd">HD</span>
+      </div>
+      <div id="modal-genres" class="genres"></div>
+      <br>
+      <div id="modal-api" class="API"></div>
+    </div>
+  </div>
+</div>
+
 
             <h2 class="section-title">Melhores Séries</h2>
             <div id="series" class="row" data-row="series">
@@ -416,6 +436,9 @@
 
     </main>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./Js/sweetalert-config.js"></script>
 <script src="Js/MainPage.js"></script>
 
 </html>

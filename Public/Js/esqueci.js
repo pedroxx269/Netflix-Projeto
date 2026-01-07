@@ -4,49 +4,28 @@ const campoConfirmar = document.getElementById("ConfirmarSenhaCadastro");
 const btnConfirmar = document.getElementById("btnConfirmar");
 const msgErro = document.getElementById("msgErro");
 
-// Validação da senha
+  //  Validação da senha
+
 function validarSenha(senha) {
-  if (senha.length < 8) return "A senha deve ter pelo menos 8 caracteres.";
-  if (!/[0-9]/.test(senha)) return "A senha deve ter pelo menos um número.";
-  if (!/[A-Z]/.test(senha))
-    return "A senha deve ter pelo menos uma letra maiúscula.";
-  if (!/[@#$%&]/.test(senha))
-    return "A senha deve ter pelo menos um símbolo (@#$%&).";
-
-  return ""; // Sem erro
-}
-
-function validarSenhaAoDigitar() {
-  const senha = campoSenha.value;
-
-  const regra8 = document.getElementById("regra8");
-  const regraNumero = document.getElementById("regraNumero");
-  const regraMaiuscula = document.getElementById("regraMaiuscula");
-  const regraSimbolo = document.getElementById("regraSimbolo");
-
-  // sempre esconde tudo antes
-  regra8.style.display = "none";
-  regraNumero.style.display = "none";
-  regraMaiuscula.style.display = "none";
-  regraSimbolo.style.display = "none";
-
-  // agora mostra só a primeira regra que falhar
   if (senha.length < 8) {
-    regra8.style.display = "block";
-  } 
-  else if (!/[0-9]/.test(senha)) {
-    regraNumero.style.display = "block";
-  } 
-  else if (!/[A-Z]/.test(senha)) {
-    regraMaiuscula.style.display = "block";
-  } 
-  else if (!/[@#$%&]/.test(senha)) {
-    regraSimbolo.style.display = "block";
+    return "A senha deve ter pelo menos 8 caracteres.";
   }
+  if (!/[0-9]/.test(senha)) {
+    return "A senha deve ter pelo menos um número.";
+  }
+  if (!/[A-Z]/.test(senha)) {
+    return "A senha deve ter pelo menos uma letra maiúscula.";
+  }
+  if (!/[@#$%&]/.test(senha)) {
+    return "A senha deve ter pelo menos um símbolo (@#$%&).";
+  }
+  return "";
 }
-// Checar senhas e mostrar mensagem
+
+  //  Conferir se as senhas batem
+
 function checarSenhas() {
-  if (campoSenha.value === "" || campoConfirmar.value === "") {
+  if (!campoSenha.value || !campoConfirmar.value) {
     btnConfirmar.disabled = true;
     msgErro.style.display = "none";
     return;
@@ -61,11 +40,13 @@ function checarSenhas() {
   }
 }
 
-// Eventos de input
+  //  Eventos de digitação
+
 campoSenha.addEventListener("input", checarSenhas);
 campoConfirmar.addEventListener("input", checarSenhas);
 
-// Submissão do formulário
+  //  Submit do formulário
+  
 formTrocarSenha.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -73,21 +54,45 @@ formTrocarSenha.addEventListener("submit", (e) => {
   const confirmarSenha = campoConfirmar.value;
 
   const erro = validarSenha(senha);
-  if (erro !== "") {
-    alert(erro);
+  if (erro) {
+    Swal.fire({
+      icon: "warning",
+      title: "Senha inválida",
+      text: erro,
+      confirmButtonColor: "#e50914",
+    });
     return;
   }
 
   if (senha !== confirmarSenha) {
-    alert("As senhas não coincidem!");
+    Swal.fire({
+      icon: "error",
+      title: "Senhas não coincidem",
+      text: "Digite a mesma senha nos dois campos.",
+      confirmButtonColor: "#e50914",
+    });
     return;
   }
 
-  // Salvar senha no localStorage (ou enviar para API)
+  // Simulação de salvamento (localStorage ou API)
   localStorage.setItem("senhaNova", senha);
 
-  alert("Senha alterada com sucesso!");
-  formTrocarSenha.reset();
-  btnConfirmar.disabled = true;
-  window.location.href = "MainPage.html";
+  Swal.fire({
+    icon: "success",
+    title: "Senha alterada com sucesso!",
+    text: "Você será redirecionado para a página de login.",
+    confirmButtonColor: "#e50914",
+    timer: 1800,
+    showConfirmButton: false,
+  }).then(() => {
+    formTrocarSenha.reset();
+    btnConfirmar.disabled = true;
+    window.location.href = "login.html";
+  });
+  alertPadrao.fire({
+  icon: "error",
+  title: "Erro ao entrar",
+  text: "E-mail ou senha incorretos"
+});
+
 });
