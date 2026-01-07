@@ -1,17 +1,19 @@
-// Busca os usuários cadastrados no LocalStorage
+// Busca os usuários cadastrados
 const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-// Seleciona elementos da página
-const formulario = document.querySelector("form");
-const inputEmail = document.getElementById("EmailLogin");
-const inputSenha = document.getElementById("SenhaLogin");
+// Aguarda DOM carregar
+document.addEventListener("DOMContentLoaded", () => {
+  const formulario = document.querySelector("form");
+  const inputEmail = document.getElementById("EmailLogin");
+  const inputSenha = document.getElementById("SenhaLogin");
+  const btnLogin = document.getElementById("btnLogin");
+});
 
-// Ação de login
-formulario.addEventListener("submit", (e) => {
-  e.preventDefault();
+  // Proteção extra
+  if (!formulario || !btnLogin) return;
 
-  const email = inputEmail.value.trim();
-  const senha = inputSenha.value.trim();
+  const btnText = btnLogin.querySelector(".btn-text");
+  const spinner = btnLogin.querySelector(".spinner");
 
   // Validação básica
   if (email === "" || senha === "") {
@@ -22,11 +24,11 @@ formulario.addEventListener("submit", (e) => {
 });
     return;
   }
+  formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  // Verifica se o usuário existe
-  const usuarioEncontrado = usuarios.find(
-    (u) => u.email.toLowerCase() === email.toLowerCase() && u.senha === senha
-  );
+    const email = inputEmail.value.trim();
+    const senha = inputSenha.value.trim();
 
   if (!usuarioEncontrado) {
     Swal.fire({
@@ -37,8 +39,10 @@ formulario.addEventListener("submit", (e) => {
     return;
   }
 
-  // Armazena usuário logado (opcional)
-  localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
+    // Loading
+    btnLogin.disabled = true;
+    btnText.textContent = "Entrando...";
+    spinner.classList.remove("hidden");
 
   // Redireciona
   Swal.fire({
@@ -51,16 +55,16 @@ formulario.addEventListener("submit", (e) => {
 
 // Mostrar / esconder senha
 function showHidePassword() {
-  const password = document.getElementById('SenhaLogin'); // corresponde ao input
-  const toggler = password.parentElement.querySelector('i'); // pega o ícone dentro do mesmo div
+  const password = document.getElementById("SenhaLogin");
+  const toggler = password?.parentElement.querySelector("i");
 
-  if (password.type === 'password') {
-    password.type = 'text';
-    toggler.classList.remove('bi-eye-fill');
-    toggler.classList.add('bi-eye-slash');
+  if (!password || !toggler) return;
+
+  if (password.type === "password") {
+    password.type = "text";
+    toggler.classList.replace("bi-eye-fill", "bi-eye-slash");
   } else {
-    password.type = 'password';
-    toggler.classList.remove('bi-eye-slash');
-    toggler.classList.add('bi-eye-fill');   
+    password.type = "password";
+    toggler.classList.replace("bi-eye-slash", "bi-eye-fill");
   }
 }
