@@ -44,14 +44,44 @@ document.addEventListener("DOMContentLoaded", () => {
     btnText.textContent = "Entrando...";
     spinner.classList.remove("hidden");
 
-  // Redireciona
-  Swal.fire({
-  title: "Sucesso!",
-  text: "Login realizado com sucesso!",
-  icon: "success"
-});
-  window.location.href = "MainPage.html"; // ajuste o nome se for diferente
-});
+    setTimeout(() => {
+      const usuarioEncontrado = usuarios.find(
+        (u) =>
+          u.email.toLowerCase() === email.toLowerCase() &&
+          u.senha === senha
+      );
+
+      if (!usuarioEncontrado) {
+        Swal.fire({
+          icon: "error",
+          title: "Login inválido",
+          text: "E-mail ou senha incorretos.",
+          confirmButtonColor: "#e50914",
+        });
+
+        btnLogin.disabled = false;
+        btnText.textContent = "Entrar";
+        spinner.classList.add("hidden");
+        return;
+      }
+
+      localStorage.setItem(
+        "usuarioLogado",
+        JSON.stringify(usuarioEncontrado)
+      );
+
+      Swal.fire({
+        icon: "success",
+        title: "Login realizado!",
+        text: "Redirecionando...",
+        confirmButtonColor: "#e50914",
+        timer: 1500,
+        showConfirmButton: false,
+      }).then(() => {
+        window.location.href = "/mainpage";
+      });
+    }, 1200);
+  });
 
 // Mostrar / esconder senha
 function showHidePassword() {

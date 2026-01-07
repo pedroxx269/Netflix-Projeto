@@ -174,3 +174,70 @@ document.querySelectorAll(".item").forEach((item) => {
   observer.observe(item);
 });
 
+document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", () => {
+        const age = card.querySelector(".age").innerText;
+        const time = card.querySelector(".time").innerText;
+        const genres = card.querySelector(".genres").innerHTML;
+        const trailer = card.dataset.trailer;
+
+
+        document.getElementById("modal-age").innerText = age;
+        document.getElementById("modal-time").innerText = time;
+        document.getElementById("modal-genres").innerHTML = genres;
+
+        document.getElementById("modal-trailer").src = trailer + "?autoplay=1";
+
+        document.getElementById("modal-filme").classList.remove("hidden");
+    });
+});
+
+// FECHAR MODAL
+function fecharModal() {
+    document.getElementById("modal-filme").classList.add("hidden");
+    document.getElementById("modal-trailer").src = "";
+}
+
+// FECHAR AO CLICAR FORA
+document.querySelector(".modal-overlay").addEventListener("click", fecharModal);
+
+
+
+  document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+    const imdbId = card.dataset.imdb;
+    abrirModal(card, imdbId);
+  });
+});
+
+function abrirModal(card, imdbId) {
+  document.getElementById("modal-filme").classList.remove("hidden");
+
+
+  document.getElementById("modal-age").innerText =
+    card.querySelector(".age").innerText;
+
+  document.getElementById("modal-time").innerText =
+    card.querySelector(".time").innerText;
+
+  document.getElementById("modal-genres").innerHTML =
+    card.querySelector(".genres").innerHTML;
+
+  carregarFilme(imdbId);
+}
+
+// API imdb
+function carregarFilme(imdbId) {
+  fetch(`https://api.imdbapi.dev/titles/${imdbId}`)
+    .then(res => res.json())
+    .then(json => {
+      const nota = json.rating?.aggregateRating ?? "N/A";
+      const sinopse =
+        json.plot;
+
+      document.getElementById("modal-api").innerHTML = `
+        <p><strong>Nota:</strong> ${nota}</p>
+        <p>${sinopse}</p>
+      `;
+    });
+}
